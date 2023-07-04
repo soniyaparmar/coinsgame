@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+  <style>
+    body{
+        background-image: url("./images/c.png");
+    }
+ 
+
+.container{
+    background-color: #ffffff;
+    width: 400px;
+    padding: 35px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 30px 35px rgba(121, 116, 116, 0.1);
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+.stats{
+    display: flex;
+    color: #101020;
+    font-weight: 500;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-top: 55px;
+    box-shadow: 0 0 20px rgba(0,139,253,0.25);
+
+}
+.stats p:nth-last-child(1){
+  margin-left: 50%;
+}
+.coin{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: 32px auto;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+.coin img{
+    width: 145px;
+}
+.heads,.tails{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+.tails{
+    transform: rotateX(180deg);
+}
+@keyframes spin-tails{
+    0%{
+        transform: rotateX();
+    }
+    100%{
+        transform: rotateX(1980deg);
+    }
+}
+@keyframes spin-heads{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(2160deg);
+    }
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    width: 150px;
+    padding: 15px 0;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reset{
+    background-color: #000000;
+    color: white;
+}
+
+  </style>
+</head>
+<body>
+
+
+    <h1 style="text-align: center; color: white; font-size: 5rem;" >Toss the coin</h1>
+  <div class="container">
+
+    <div class="coin" id="coin">
+        <div class="tails">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPkBsoULAsM_P-WTW3uOVNozA1AsZ_hjz4ciRRufQxdyTWhjHLQeMKKmy66eczbiTb2c&usqp=CAU" id="tail">
+        </div>
+        <div class="heads">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPXdeMWZbX3Vk9Qc3tgGtERTCZNe5z1OyzXN8ZejoIrXgA95Wi4mfTV3BgGr0lGHO5I4&usqp=CAU" id="head">
+        </div>
+    </div>
+    
+    <div class="buttons">
+        <button id="flip-button" onclick="coinsss()" class="reset">
+            Flip Coin
+        </button>
+        <button id="result" class="reset">
+            Reset
+        </button>
+    </div>
+</div>
+<script>
+let flipBtn = document.querySelector("#flip-button");
+                let img1;
+                let img2;
+                    function coinsss (){
+                        let i = Math.floor(Math.random() * 2);
+                        coin.style.animation = "none";
+                    if (i == 1) {
+                        setTimeout(function () {
+                            coin.style.animation = "spin-heads 1s forwards";
+                            img1 = document.getElementById("coin");
+                            img1.src = "./image/coin2.png"
+                            document.getElementById("result").innerHTML = "Heads";
+                        });
+
+                    }
+                    else {
+                        setTimeout(function () {
+                            coin.style.animation = "spin-tails 1s forwards";
+                            img2 = document.getElementById("coin");
+                            img2.src = "./image/coin-modified.png"
+                            document.getElementById("result").innerHTML = "Tails";
+                        });
+                    }
+                }
+             
+
+
+</script>
+</body>
+</html>
